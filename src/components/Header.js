@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: `#fff`,
+    fontSize:"3rem"
   },
 }));
 
