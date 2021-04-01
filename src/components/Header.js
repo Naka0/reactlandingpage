@@ -7,12 +7,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
-    alignItems: 'center',
-    height: '100vh',
+    alignItems: "center",
+    height: "100vh",
+    fontFamily: "Nunito",
   },
   appbar: {
     background: "none",
-    fontFamily: "Nunito",
   },
   appbarWrapper: {
     width: "80%",
@@ -28,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
   colorText: {
     color: "#5AFF3D",
   },
-  title:{
-    color: `#fff`
-  }
+  title: {
+    color: `#fff`,
+  },
 }));
 
 export default function Header() {
