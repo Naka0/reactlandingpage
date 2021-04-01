@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, IconButton, Toolbar } from "@material-ui/core";
+import { AppBar, Collapse, IconButton, Toolbar } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,17 +29,28 @@ const useStyles = makeStyles((theme) => ({
   colorText: {
     color: "#5AFF3D",
   },
-  container:{
-      textAlign: 'center'
+  container: {
+    textAlign: "center",
   },
   title: {
     color: `#fff`,
-    fontSize:"4.5rem"
+    fontSize: "4.5rem",
+  },
+  goDown: {
+    color: "#5AFF3D",
+    fontSize: "4rem",
+  },
+  container: {
+    textAlign: "center",
   },
 }));
 
 export default function Header() {
   const classes = useStyles();
+  const [checked, setChecked] = useState(false);
+  useEffect(() =>{
+    setChecked(true);
+  },[])
   return (
     <div className={classes.root}>
       <AppBar className={classes.appbar} elevation={0}>
@@ -51,12 +63,20 @@ export default function Header() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <div>
-        <h1 className={classes.title}>
-          Welcome to <br /> My
-          <span className={classes.colorText}>Island.</span>
-        </h1>
-      </div>
+      <Collapse in={checked} 
+      {...(checked ? { timeout: 1000 } : {})}
+      collapsedHeight={50}
+      >
+        <div className={classes.container}>
+          <h1 className={classes.title}>
+            Welcome to <br /> My
+            <span className={classes.colorText}>Island.</span>
+          </h1>
+          <IconButton>
+            <ExpandMoreIcon className={classes.goDown} />
+          </IconButton>
+        </div>
+      </Collapse>
     </div>
   );
 }
