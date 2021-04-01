@@ -28,9 +28,12 @@ const useStyles = makeStyles((theme) => ({
   colorText: {
     color: "#5AFF3D",
   },
+  container:{
+      textAlign: 'center'
+  },
   title: {
     color: `#fff`,
-    fontSize:"3rem"
+    fontSize:"4.5rem"
   },
 }));
 
