@@ -48,11 +48,11 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
-  useEffect(() =>{
+  useEffect(() => {
     setChecked(true);
-  },[])
+  }, []);
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="header">
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <h1 className={classes.appbarTitle}>
@@ -63,9 +63,10 @@ export default function Header() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Collapse in={checked} 
-      {...(checked ? { timeout: 1000 } : {})}
-      collapsedHeight={50}
+      <Collapse
+        in={checked}
+        {...(checked ? { timeout: 1000 } : {})}
+        collapsedHeight={50}
       >
         <div className={classes.container}>
           <h1 className={classes.title}>
